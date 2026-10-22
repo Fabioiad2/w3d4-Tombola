@@ -37,6 +37,9 @@ h1, h2 {
   font-size: 1rem;
   cursor: pointer;
   font-family: inherit;
+  background-color: white;
+  border-radius: 5px;
+  color: rgb(0, 0, 31);
 }
 
 .tabellone {
@@ -57,4 +60,9 @@ h1, h2 {
   background: #0066cc;
   color: #ffffff;
   font-weight: bold;
+}
+
+#cronologia{
+  text-align: center;
+  
 }

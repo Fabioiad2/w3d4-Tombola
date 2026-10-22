@@ -16,6 +16,14 @@ const EstraiNumeri = ()=>{
   let ultimoUscito = document.querySelector('#ultimo-numero')
   ultimoUscito.textContent = ""
   let valueUltimoUscito = Math.floor(Math.random() * 90)
+  console.log(valueUltimoUscito,"prima")
+  if(usciti.includes(valueUltimoUscito)){
+    EstraiNumeri()
+  }
+  else{
+    console.log("vado nell'else")
+  }
+  console.log("dopo while",valueUltimoUscito)
   usciti.push(valueUltimoUscito)
   console.log(usciti)
   ultimoUscito.textContent += valueUltimoUscito
@@ -46,8 +54,9 @@ function cronologia(){
 
 function createTabellone(){
   tabelloneId.textContent = ""
-  for(let i = 0; i < 91; i++){
+  for(let i = 1; i < 91; i++){
     let numero = document.createElement('button')
+    numero.classList.add('numero')
     numero.textContent = i
     tabelloneId.appendChild(numero)
     console.log(i)
