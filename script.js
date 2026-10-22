@@ -10,6 +10,7 @@ let usciti = []; // array dei numeri già estratti
 let bottoneEstrai = document.querySelector('#estrai')
 let resetButton = document.querySelector('#reset')
 let cronologiaParagraph = document.querySelector('#cronologia')
+let tabelloneId = document.querySelector('#tabellone')
 
 const EstraiNumeri = ()=>{
   let ultimoUscito = document.querySelector('#ultimo-numero')
@@ -23,12 +24,14 @@ const EstraiNumeri = ()=>{
 bottoneEstrai.addEventListener('click',()=>{
   EstraiNumeri()
   cronologia()
+  createTabellone()
 })
 
 
 function reset(){
   usciti = []
   cronologia()
+  createTabellone()
 }
 
 resetButton.addEventListener('click',()=>{
@@ -41,6 +44,23 @@ function cronologia(){
   cronologiaParagraph.textContent = usciti 
 }
 
+function createTabellone(){
+  for(let i = 0; i < 91; i++){
+      let numero = document.createElement('button')
+      numero.textContent = i
+      tabelloneId.appendChild(numero)
+      console.log(i)
+    usciti.forEach(u=>{
+      if(u == i){
+        console.log(u,"u")
+        numero.classList.add("numerouscito");
+       
+      }
+    })
+  }
+}
+
+createTabellone()
 /* SCRIVI QUI LE TUE FUNZIONI E I TUOI LISTENER:
    1. rendiTabellone()  — crea 90 div, evidenzia i numeri usciti
    2. estrai()          — pesca un numero casuale tra i non usciti
