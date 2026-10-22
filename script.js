@@ -41,24 +41,27 @@ resetButton.addEventListener('click',()=>{
 
 
 function cronologia(){
-  cronologiaParagraph.textContent = usciti 
+  cronologiaParagraph.textContent = usciti.slice(0,10)
 }
 
 function createTabellone(){
+  tabelloneId.textContent = ""
   for(let i = 0; i < 91; i++){
-      let numero = document.createElement('button')
-      numero.textContent = i
-      tabelloneId.appendChild(numero)
-      console.log(i)
-    usciti.forEach(u=>{
-      if(u == i){
-        console.log(u,"u")
-        numero.classList.add("numerouscito");
-       
+    let numero = document.createElement('button')
+    numero.textContent = i
+    tabelloneId.appendChild(numero)
+    console.log(i)
+        
+        usciti.forEach(u=>{
+          if(u == i){
+            console.log(u,"numero uscito")
+            numero.classList.add("numerouscito");
+          }
+        })
       }
-    })
-  }
 }
+
+
 
 createTabellone()
 /* SCRIVI QUI LE TUE FUNZIONI E I TUOI LISTENER:
