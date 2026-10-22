@@ -7,6 +7,39 @@
 
 let usciti = []; // array dei numeri già estratti
 
+let bottoneEstrai = document.querySelector('#estrai')
+let resetButton = document.querySelector('#reset')
+let cronologiaParagraph = document.querySelector('#cronologia')
+
+const EstraiNumeri = ()=>{
+  let ultimoUscito = document.querySelector('#ultimo-numero')
+  ultimoUscito.textContent = ""
+  let valueUltimoUscito = Math.floor(Math.random() * 90)
+  usciti.push(valueUltimoUscito)
+  console.log(usciti)
+  ultimoUscito.textContent += valueUltimoUscito
+}
+
+bottoneEstrai.addEventListener('click',()=>{
+  EstraiNumeri()
+  cronologia()
+})
+
+
+function reset(){
+  usciti = []
+  cronologia()
+}
+
+resetButton.addEventListener('click',()=>{
+  reset()
+  
+})
+
+
+function cronologia(){
+  cronologiaParagraph.textContent = usciti 
+}
 
 /* SCRIVI QUI LE TUE FUNZIONI E I TUOI LISTENER:
    1. rendiTabellone()  — crea 90 div, evidenzia i numeri usciti
