@@ -12,22 +12,22 @@ let resetButton = document.querySelector('#reset')
 let cronologiaParagraph = document.querySelector('#cronologia')
 let tabelloneId = document.querySelector('#tabellone')
 
-const EstraiNumeri = ()=>{
-  let ultimoUscito = document.querySelector('#ultimo-numero')
-  ultimoUscito.textContent = ""
-  let valueUltimoUscito = Math.floor(Math.random() * 90)
-  console.log(valueUltimoUscito,"prima")
-  if(usciti.includes(valueUltimoUscito)){
-    EstraiNumeri()
+const EstraiNumeri = () => {
+  if (usciti.length >= 90) {
+    alert("Hai finito il tabellone!");
+    return; // Ferma subito la funzione prima che entri nel do...while!
   }
-  else{
-    console.log("vado nell'else")
-  }
-  console.log("dopo while",valueUltimoUscito)
-  usciti.push(valueUltimoUscito)
-  console.log(usciti)
-  ultimoUscito.textContent += valueUltimoUscito
-}
+
+  let ultimoUscito = document.querySelector('#ultimo-numero');
+  let valueUltimoUscito;
+
+  do {
+    valueUltimoUscito = Math.floor(Math.random() * 90) + 1;
+  } while (usciti.includes(valueUltimoUscito));
+
+  usciti.push(valueUltimoUscito);
+  ultimoUscito.textContent = valueUltimoUscito;
+};
 
 bottoneEstrai.addEventListener('click',()=>{
   EstraiNumeri()
